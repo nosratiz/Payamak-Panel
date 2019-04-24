@@ -15,16 +15,21 @@ namespace FarapayamakApi
         public List<MessageResult> Data { get; set; }
     }
 
+    public class GetUserNumberList
+    {
+        public Result MyBase { get; set; }
+
+        public List<UserNumber> Data { get; set; }
+    }
+
     public class FaraApi
     {
-        private readonly string _sendMessageApiPath = "https://rest.payamak-panel.com/api/SendSMS/SendSMS";
+        private readonly string _baseApi = "https://rest.payamak-panel.com/api/SendSMS/";
 
-        private readonly string _deliveryStatusApiPath = "https://rest.payamak-panel.com/api/SendSMS/GetDeliveries2";
-
-        private readonly string _getListOfMessageApiPath = "https://rest.payamak-panel.com/api/SendSMS/GetMessages";
-
-        private readonly string _getCreditApiPath = "https://rest.payamak-panel.com/api/SendSMS/GetCredit";
-
+        private static string GetApiPath(string baseApi, string relativePath)
+        {
+            return $"{baseApi}{relativePath}";
+        }
 
         private static string SendPostRequest(string address, string data)
         {
@@ -58,11 +63,10 @@ namespace FarapayamakApi
                 IsFlash = false
             };
 
-            string res = SendPostRequest(_sendMessageApiPath, JsonConvert.SerializeObject(sendMessage));
+            string res = SendPostRequest(GetApiPath(_baseApi, "SendSMS"), JsonConvert.SerializeObject(sendMessage));
 
             return JsonConvert.DeserializeObject<Result>(res);
         }
-
 
         public Result GetMyCredit(string userName, string password)
         {
@@ -71,7 +75,7 @@ namespace FarapayamakApi
                 UserName = userName,
                 Password = password
             };
-            string res = SendPostRequest(_getCreditApiPath, JsonConvert.SerializeObject(account));
+            string res = SendPostRequest(GetApiPath(_baseApi, "GetCredit"), JsonConvert.SerializeObject(account));
 
             return JsonConvert.DeserializeObject<Result>(res);
 
@@ -89,7 +93,7 @@ namespace FarapayamakApi
 
             };
 
-            string res = SendPostRequest(_getListOfMessageApiPath, JsonConvert.SerializeObject(req));
+            string res = SendPostRequest(GetApiPath(_baseApi, "GetMessages"), JsonConvert.SerializeObject(req));
 
             return JsonConvert.DeserializeObject<MessageList>(res);
 
@@ -104,21 +108,43 @@ namespace FarapayamakApi
                 RecId = recId
             };
 
-            string res = SendPostRequest(_deliveryStatusApiPath, JsonConvert.SerializeObject(deliverRequest));
+            string res = SendPostRequest(GetApiPath(_baseApi, "GetDeliveries2"), JsonConvert.SerializeObject(deliverRequest));
 
             return JsonConvert.DeserializeObject<Result>(res);
         }
 
+        public Result GetBasePrice(string userName, string password)
+        {
+            Account account = new Account { UserName = userName, Password = password };
 
+            string res = SendPostRequest(GetApiPath(_baseApi, "GetBasePrice"), JsonConvert.SerializeObject(account));
 
+            return JsonConvert.DeserializeObject<Result>(res);
+        }
 
+        public GetUserNumberList GetUserNumberList(string userName, string password)
+        {
+            Account account = new Account { UserName = userName, Password = password };
 
+            string res = SendPostRequest(GetApiPath(_baseApi, "GetUserNumbers"), JsonConvert.SerializeObject(account));
 
+            return JsonConvert.DeserializeObject<GetUserNumberList>(res);
+        }
 
+        public Result UseBaseService(string userName, string password, string text, string to, int bodyId)
+        {
+            BaseService baseService = new BaseService
+            {
+                UserName = userName,
+                Password = password,
+                Text = text,
+                To = to,
+                BodyId = bodyId
+            };
+            string res = SendPostRequest(GetApiPath(_baseApi, "BaseServiceNumber"), JsonConvert.SerializeObject(baseService));
 
-
-
-
+            return JsonConvert.DeserializeObject<Result>(res);
+        }
 
 
     }
