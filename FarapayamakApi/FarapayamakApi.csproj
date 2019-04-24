@@ -47,8 +47,10 @@
   <ItemGroup>
     <Compile Include="FaraApi.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\DeliverRequest.cs" />
     <Compile Include="Models\Enums\DeliveryStatus.cs" />
-    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\GetMessageListReq.cs" />
+    <Compile Include="Models\MessageResult.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\SendMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,11 +8,11 @@ using Newtonsoft.Json;
 
 namespace FarapayamakApi
 {
-    internal class MessageList
+    public class MessageList
     {
         public Result MyBase { get; set; }
 
-        public List<Message> Data { get; set; }
+        public List<MessageResult> Data { get; set; }
     }
 
     public class FaraApi
@@ -54,7 +54,8 @@ namespace FarapayamakApi
                 Password = password,
                 From = from,
                 To = to,
-                Text = text
+                Text = text,
+                IsFlash = false
             };
 
             string res = SendPostRequest(_sendMessageApiPath, JsonConvert.SerializeObject(sendMessage));
@@ -74,6 +75,38 @@ namespace FarapayamakApi
 
             return JsonConvert.DeserializeObject<Result>(res);
 
+        }
+
+        public MessageList GetMyMessageList(string userName, string password, int type, int index, int count)
+        {
+            GetMessageListReq req = new GetMessageListReq
+            {
+                UserName = userName,
+                Password = password,
+                Location = type,
+                Index = index,
+                Count = count,
+
+            };
+
+            string res = SendPostRequest(_getListOfMessageApiPath, JsonConvert.SerializeObject(req));
+
+            return JsonConvert.DeserializeObject<MessageList>(res);
+
+        }
+
+        public Result GetMessageStatus(string userName, string password, long recId)
+        {
+            DeliverRequest deliverRequest = new DeliverRequest
+            {
+                UserName = userName,
+                Password = password,
+                RecId = recId
+            };
+
+            string res = SendPostRequest(_deliveryStatusApiPath, JsonConvert.SerializeObject(deliverRequest));
+
+            return JsonConvert.DeserializeObject<Result>(res);
         }
 
 

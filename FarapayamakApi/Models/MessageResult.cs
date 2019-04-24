@@ -2,7 +2,7 @@
 
 namespace FarapayamakApi.Models
 {
-    public class Message
+    public class MessageResult
     {
         public int MsgID { get; set; }
 
