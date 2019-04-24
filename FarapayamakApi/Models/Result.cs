@@ -1,7 +1,12 @@
 ﻿namespace FarapayamakApi.Models
 {
-    public class Result : Account
+    public class Result
     {
-        public long RecId { get; set; }
+        public string Value { get; set; }
+
+        public int RetStatus { get; set; }
+
+        public string StrRetStatus { get; set; }
+
     }
 }
