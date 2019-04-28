@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/nosratiz/FarapayamakApi</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>first virsion of farapayamak api services</releaseNotes>
+    <releaseNotes>some bug fixed for base service.</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>faradade sms  farapayamak</tags>
+    <tags>faradade sms farapayamak</tags>
   </metadata>
 </package>

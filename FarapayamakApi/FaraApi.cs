@@ -55,8 +55,8 @@ namespace FarapayamakApi
         {
             SendMessage sendMessage = new SendMessage
             {
-                UserName = userName,
-                Password = password,
+                username = userName,
+                password = password,
                 From = from,
                 To = to,
                 Text = text,
@@ -72,8 +72,8 @@ namespace FarapayamakApi
         {
             Account account = new Account
             {
-                UserName = userName,
-                Password = password
+                username = userName,
+                password = password
             };
             string res = SendPostRequest(GetApiPath(_baseApi, "GetCredit"), JsonConvert.SerializeObject(account));
 
@@ -85,11 +85,12 @@ namespace FarapayamakApi
         {
             GetMessageListReq req = new GetMessageListReq
             {
-                UserName = userName,
-                Password = password,
-                Location = type,
-                Index = index,
-                Count = count,
+                username = userName,
+                password = password,
+                location = type,
+                index = index,
+                count = count,
+                from = String.Empty
 
             };
 
@@ -103,8 +104,8 @@ namespace FarapayamakApi
         {
             DeliverRequest deliverRequest = new DeliverRequest
             {
-                UserName = userName,
-                Password = password,
+                username = userName,
+                password = password,
                 RecId = recId
             };
 
@@ -115,7 +116,7 @@ namespace FarapayamakApi
 
         public Result GetBasePrice(string userName, string password)
         {
-            Account account = new Account { UserName = userName, Password = password };
+            Account account = new Account { username = userName, password = password };
 
             string res = SendPostRequest(GetApiPath(_baseApi, "GetBasePrice"), JsonConvert.SerializeObject(account));
 
@@ -124,7 +125,7 @@ namespace FarapayamakApi
 
         public GetUserNumberList GetUserNumberList(string userName, string password)
         {
-            Account account = new Account { UserName = userName, Password = password };
+            Account account = new Account { username = userName, password = password };
 
             string res = SendPostRequest(GetApiPath(_baseApi, "GetUserNumbers"), JsonConvert.SerializeObject(account));
 
