@@ -135,11 +135,11 @@ namespace FarapayamakApi
         {
             BaseService baseService = new BaseService
             {
-                UserName = userName,
-                Password = password,
-                Text = text,
-                To = to,
-                BodyId = bodyId
+                username = userName,
+                password = password,
+                text = text,
+                to = to,
+                bodyId = bodyId
             };
             string res = SendPostRequest(GetApiPath(_baseApi, "BaseServiceNumber"), JsonConvert.SerializeObject(baseService));
 
