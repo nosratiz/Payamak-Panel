@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarapayamakApi", "FarapayamakApi\FarapayamakApi.csproj", "{7670C1CC-6CE8-4833-B568-6BB5F6A4D194}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayamakPanel", "FarapayamakApi\PayamakPanel.csproj", "{7670C1CC-6CE8-4833-B568-6BB5F6A4D194}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

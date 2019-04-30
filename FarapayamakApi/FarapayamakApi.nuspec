@@ -6,11 +6,13 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
+  
     <projectUrl>https://github.com/nosratiz/FarapayamakApi</projectUrl>
+
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>some bug fixed for base service.</releaseNotes>
+    <releaseNotes>some bug fixed </releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>faradade sms farapayamak</tags>
+    <tags>faradade farapayaak</tags>
   </metadata>
 </package>
