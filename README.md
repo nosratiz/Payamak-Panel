@@ -3,11 +3,11 @@ payamak Service use for Send Message
 
 # Installation
 
-First you need to create Account in Farapayamak.ir 
+First you need to create Account in payamak-panel.com 
 
 and after that you Can Use this Servie for Your App 
 
-You Can Download FaraPayamak Rest Documentation [Here](https://panel.farapayamak.com/Files/webservice-rest.pdf)
+You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webservice-rest.pdf)
 
  # Usage
  
