@@ -7,8 +7,8 @@
     <ProjectGuid>{7670C1CC-6CE8-4833-B568-6BB5F6A4D194}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FarapayamakApi</RootNamespace>
-    <AssemblyName>FarapayamakApi</AssemblyName>
+    <RootNamespace>PayamakPanel</RootNamespace>
+    <AssemblyName>PayamakPanel</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
