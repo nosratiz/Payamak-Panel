@@ -1,4 +1,4 @@
-﻿namespace FarapayamakApi.Models
+﻿namespace PayamakPanel.Models
 {
     public class DeliverRequest : Account
     {

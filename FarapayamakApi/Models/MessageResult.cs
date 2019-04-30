@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FarapayamakApi.Models
+namespace PayamakPanel.Models
 {
     public class MessageResult
     {

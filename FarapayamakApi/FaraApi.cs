@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Web;
-using FarapayamakApi.Models;
 using Newtonsoft.Json;
+using PayamakPanel.Models;
 
-namespace FarapayamakApi
+namespace PayamakPanel
 {
     public class MessageList
     {
@@ -90,7 +90,7 @@ namespace FarapayamakApi
                 location = type,
                 index = index,
                 count = count,
-                from = String.Empty
+                @from = String.Empty
 
             };
 
