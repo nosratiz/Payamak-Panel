@@ -1,4 +1,4 @@
-﻿namespace FarapayamakApi.Models.Enums
+﻿namespace PayamakPanel.Models.Enums
 {
     public enum DeliveryStatus
     {
