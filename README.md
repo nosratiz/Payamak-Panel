@@ -1,5 +1,5 @@
-# FarapayamakApi
-Farapayamak Service use for Send Message
+# payamak
+payamak Service use for Send Message
 
 # Installation
 
