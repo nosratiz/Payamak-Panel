@@ -5,7 +5,7 @@ payamak Service use for Send Message
 
 First you need to create Account in payamak-panel.com 
 
-and after that you Can Use this Servie for Your App 
+and after that you Can Use this Service for Your App 
 
 You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webservice-rest.pdf)
 
