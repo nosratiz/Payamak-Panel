@@ -1,13 +1,27 @@
 # payamak
-payamak Service use for Send Message
+payamak service use for send message
 
 # Installation
 
-First you need to create Account in payamak-panel.com 
+First, you need to create an account at payamak-panel.com 
 
-and after that you Can Use this Service for Your App 
+and after that, you can use this service for your app 
 
-You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webservice-rest.pdf)
+You can download the rest documentation [Here](http://payamak-panel.com/Files/webservice-rest.pdf)
+
+
+```C#
+
+Install-Package PayamakPanel.Core
+
+```
+
+ # Registration
+ ``` C#
+ 
+ builder.Services.AddPayamakService();
+ 
+ ```
 
  # Usage
  
@@ -15,9 +29,28 @@ You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webse
  
 ``` C#
 
-  FaraApi fara = new FaraApi();
+private readonly IPayamakServices _payamakServices;
 
- Result result = fara.SendSms("UserName","Password","From","TO","your Message");
+public Controller(IPayamakServices payamakServices)
+{
+ _payamakServices = payamakServices;
+}
+
+
+public async Task sendmessage()
+{
+   var result=  await _payamakServices.SendSms(new MessageDto{
+            From = "your line number",
+            To = "you phone number",
+            Text = "کد فعال سازی حساب کاربری شما برای عملیات تغییر یا فراموشی رمزعبور 82234 است.",
+            username = "username",
+            password = "password"
+            ,IsFlash = false
+        });
+}
+
+
+
   
   ```
   
@@ -26,7 +59,7 @@ You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webse
   this class Use For Get Result Of Api 
   
   ``` C#
-     public class Result
+     public class ResultDto
     {
         public string Value { get; set; }
 
@@ -37,29 +70,18 @@ You Can Download  Rest Documentation [Here](http://payamak-panel.com/Files/webse
     }
     
   ```
+  
+  
+  # Major Changes 
+  
+  1-All methods support CancellationToken 
+  
+  2-Add Retry policy behind the scene
+  
+  3-Support asynchronous http call
+  
+  4-Improve performance
     
     
     
-    
- # Message List    
- For Get List Of Message You Send Or Recived
-    
-  ``` C#
-    
-     MessageList messagelist = fara.GetMyMessageList("UserName", "Password",Type,index,Count);
 
-                foreach (var item in messagelist.Data)
-                {
-                    Console.WriteLine($"{item.Body}{Environment.NewLine}");
-                }              
-   ```
-   
-  # Template Message 
-  
-  first you Need to Define Your Template Message In Farapayamak Panel after That You Can Use This Method for Send Template Message
-  
-  ``` C#
-  
-   Result result = fara.UseBaseService("userName", "Password", "name;lastname;1398/02/07", "to", bodyId);
-  
-  ```
